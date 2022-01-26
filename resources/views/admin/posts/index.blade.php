@@ -16,8 +16,8 @@
         <tr>
             <th>ID</th>
             <th>Title</th>
-            <th>Author</th>
             <th>Image</th>
+            <th>Author</th>
             <th>Actions</th>
 
         </tr>
@@ -33,7 +33,9 @@
                 <a href="{{route('admin.posts.show', $post->id )}}">
                     <i class="fas fa-eye fa-fw"></i>
                 </a>
-                <i class="fas fa-pencil-alt fa-fw"></i>
+                <a href="{{route('admin.posts.edit', $post->id )}}">
+                    <i class="fas fa-pencil-alt fa-fw"></i>
+                </a>
                 <i class="fas fa-trash fa-fw"></i>
             </td>
         </tr>

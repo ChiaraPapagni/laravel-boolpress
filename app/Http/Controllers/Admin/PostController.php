@@ -38,7 +38,18 @@ class PostController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $validated = $request->validate([
+            'title' => 'required',
+            'image' => 'nullable',
+            'author' => 'nullable',
+            'content' => 'nullable',
+        ]);
+
+        //ddd($validated);
+
+        Post::create($validated);
+        // redirect
+        return redirect()->route('admin.posts.index');
     }
 
     /**
