@@ -18,6 +18,8 @@ Route::get('/', function () {
     return view('guest.welcome');
 })->name('home');
 
+Route::resource('posts', PostController::class)->only(['index', 'show']);
+
 Auth::routes();
 
 Route::namespace('Admin')
@@ -26,4 +28,5 @@ Route::namespace('Admin')
     ->middleware('auth')
     ->group(function () {
         Route::get('/', 'HomeController@index')->name('dashboard');
+        Route::resource('posts', PostController::class);
     });
