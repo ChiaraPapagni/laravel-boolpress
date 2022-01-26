@@ -13,16 +13,10 @@
                 <!-- Left Side Of Navbar -->
                 <ul class="navbar-nav mr-auto">
                     <li class="nav-item">
+                        <a class="nav-link" href="#">Blog</a>
+                    </li>
+                    <li class="nav-item">
                         <a class="nav-link" href="#">Prodotti</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="#">Funzionalità</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="#">Risorse</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="#">Piani e prezzi</a>
                     </li>
                 </ul>
 

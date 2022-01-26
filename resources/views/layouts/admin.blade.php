@@ -45,14 +45,21 @@
                         <ul class="nav flex-column">
                             <li class="nav-item">
                                 <a class="nav-link active" aria-current="page" href="{{route('admin.dashboard')}}">
-                                    <i class="fas fa-tachometer-alt fa-lg fa-fw"></i>
+                                    <i class="fas fa-tachometer-alt fa-fw"></i>
                                     Dashboard
                                 </a>
                             </li>
 
                             <li class="nav-item">
+                                <a class="nav-link" href="{{route('admin.posts.index')}}">
+                                    <i class="far fa-edit fa-fw"></i>
+                                    Posts
+                                </a>
+                            </li>
+
+                            <li class="nav-item">
                                 <a class="nav-link" href="#">
-                                    <i class="fas fa-shopping-bag fa-lg fa-fw"></i>
+                                    <i class="fas fa-shopping-bag fa-fw"></i>
                                     Products
                                 </a>
                             </li>
