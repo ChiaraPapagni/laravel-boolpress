@@ -10036,3 +10036,22 @@ nav > .container .nav-item > a {
 nav > .container .nav-item > a:hover {
   opacity: 0.85;
 }
+
+/* Main */
+.text {
+  width: 75%;
+  text-align: center;
+}
+.text .display-3 {
+  font-family: "Recoleta", sans-serif;
+  font-size: 48px;
+  font-weight: 500;
+  color: #117ac9;
+  margin-bottom: 3rem;
+}
+.text .lead {
+  font-size: 29px;
+  font-weight: 400;
+  color: #043959;
+  line-height: 40px;
+}

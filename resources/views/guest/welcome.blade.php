@@ -3,9 +3,9 @@
 @section('content')
 
 <div class="p-5 bg-light">
-    <div class="container">
+    <div class="container text">
         <h1 class="display-3">
-            Il costruttore di siti più famoso al mondo.
+            Il costruttore di siti piu' famoso al mondo.
         </h1>
         <p class="lead">
             Il 43% dei siti web usa la tecnologia WordPress. Blogger, piccole attività e grandi aziende nella lista
