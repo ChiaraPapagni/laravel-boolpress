@@ -26,7 +26,7 @@
     <div id="app">
         <header class="navbar navbar-dark sticky-top bg-dark flex-md-nowrap shadow">
             <a class="navbar-brand" href="{{ route('home') }}">
-                <img src="{{ asset('img/logo.svg') }}" alt="Wordpress Logo">
+                <img src="{{ asset('img/logo.png') }}" alt="boolpress Logo">
             </a>
 
             <a class="" href="{{ route('logout') }}" onclick="event.preventDefault();
