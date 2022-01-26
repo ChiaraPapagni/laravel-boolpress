@@ -79,9 +79,4 @@
 <div class="d-flex justify-content-center">
     {{$posts->links()}}
 </div>
-<!-- 
-    Delete post {{$post->title}}
-    Are you sure you want to delete this post? 
-    This operation is not reversible!
- -->
 @endsection
