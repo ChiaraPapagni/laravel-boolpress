@@ -48,7 +48,7 @@ class PostController extends Controller
         //ddd($validated);
 
         Post::create($validated);
-        // redirect
+
         return redirect()->route('admin.posts.index');
     }
 
@@ -71,7 +71,7 @@ class PostController extends Controller
      */
     public function edit(Post $post)
     {
-        //
+        return view('admin.posts.edit', compact('post'));
     }
 
     /**
@@ -83,7 +83,18 @@ class PostController extends Controller
      */
     public function update(Request $request, Post $post)
     {
-        //
+        $validated = $request->validate([
+            'title' => 'required',
+            'image' => 'nullable',
+            'author' => 'nullable',
+            'content' => 'nullable',
+        ]);
+
+        $post->update($validated);
+
+        return redirect()
+            ->route('admin.posts.index')
+            ->with('message', 'The post has been correctly updated!');
     }
 
     /**
@@ -94,6 +105,9 @@ class PostController extends Controller
      */
     public function destroy(Post $post)
     {
-        //
+        $post->delete();
+        return redirect()
+            ->route('admin.posts.index')
+            ->with('message', 'The post has been correctly removed!');
     }
 }
