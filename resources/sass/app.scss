@@ -1,8 +1,30 @@
 // Fonts
 @import url('https://fonts.googleapis.com/css?family=Nunito');
+@import url('http://fonts.cdnfonts.com/css/recoleta');
 
 // Variables
 @import 'variables';
 
 // Bootstrap
 @import '~bootstrap/scss/bootstrap';
+
+
+body {
+    font-family: "Segoe UI";
+}
+
+/* Header */
+nav>.container {
+    max-width: 100%!important;
+
+    .nav-item >a {
+        font-family: "Segoe UI";
+        font-size: 16px;
+        font-weight: 600;
+        color: #003c56!important;
+
+        &:hover {
+            opacity: .85;
+        }
+    }
+}
