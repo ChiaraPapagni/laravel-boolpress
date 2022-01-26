@@ -10055,3 +10055,18 @@ nav > .container .nav-item > a:hover {
   color: #043959;
   line-height: 40px;
 }
+
+.post {
+  width: 80%;
+  margin: auto;
+}
+.post img {
+  width: 100%;
+}
+
+.clamp-3 {
+  display: -webkit-box;
+  -webkit-line-clamp: 3;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}

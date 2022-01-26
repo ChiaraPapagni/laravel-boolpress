@@ -49,3 +49,18 @@ nav>.container {
         line-height: 40px;
     }
 }
+
+.post {
+    img {
+    width: 100%;
+    }
+    width: 80%;
+    margin: auto;
+}
+
+.clamp-3 {
+  display: -webkit-box;
+  -webkit-line-clamp: 3;
+  -webkit-box-orient: vertical;  
+  overflow: hidden;
+}
