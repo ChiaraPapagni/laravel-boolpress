@@ -18,7 +18,6 @@ class PostSeeder extends Seeder
             $post->title = $faker->sentence();
             $post->image = $faker->imageUrl(600, 400, 'Posts');
             $post->content = $faker->paragraph(10, true);
-            $post->author = $faker->name();
             $post->save();
         }
     }
