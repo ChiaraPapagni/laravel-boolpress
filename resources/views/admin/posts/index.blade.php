@@ -11,6 +11,10 @@
     </a>
 </div>
 
+<div class="container my-2">
+    @include('partials.session_message')
+</div>
+
 <table class="table">
     <thead>
         <tr>
@@ -38,14 +42,14 @@
                 </a>
 
                 <!-- Button trigger modal -->
-                <button type="button" class="btn btn-danger btn-sm" data-bs-toggle="modal"
-                    data-bs-target="#delete{{$post->id}}">
-                    <i class="far fa-trash-alt"></i>
+                <button type="button" class="btn btn-danger btn-sm text-white" data-bs-toggle="modal"
+                    data-bs-target="#delere_post_{{$post->slug}}">
+                    <i class="fas fa-trash-alt fa-fw"></i>
                 </button>
 
                 <!-- Modal -->
-                <div class="modal fade" id="delete{{$post->id}}" tabindex="-1" role="dialog"
-                    aria-labelledby="modal-{{$post->id}}" aria-hidden="true">
+                <div class="modal fade" id="delere_post_{{$post->slug}}" tabindex="-1" role="dialog"
+                    aria-labelledby="modal_{{$post->slug}}" aria-hidden="true">
                     <div class="modal-dialog" role="document">
                         <div class="modal-content">
                             <div class="modal-header">
@@ -54,22 +58,21 @@
                                     aria-label="Close"></button>
                             </div>
                             <div class="modal-body">
-                                Are you sure you want to delete this post?
-                                This operation is not reversible!
+                                Are you sure you want to proceed?
+                                This operation is irreversible!
                             </div>
                             <div class="modal-footer">
                                 <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-
+                                <form action="{{route('admin.posts.destroy', $post->id)}}" method="post">
+                                    @csrf
+                                    @method('DELETE')
+                                    <button type="submit" class="btn btn-danger text-white"
+                                        data-bs-dismiss="modal">Delete</button>
+                                </form>
                             </div>
                         </div>
                     </div>
                 </div>
-                <!-- <form action="{{route('admin.posts.destroy', $post->id)}}" method="post">
-                    @csrf
-                    @method('DELETE')
-
-                    <button type="submit" class="btn btn-danger">Delete</button>
-                </form> -->
             </td>
         </tr>
         @endforeach
