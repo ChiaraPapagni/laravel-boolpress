@@ -20,7 +20,6 @@
         <tr>
             <th>ID</th>
             <th>Title</th>
-            <!-- <th>Slug</th> -->
             <th>Category</th>
             <th>Image</th>
             <th>Actions</th>
@@ -32,7 +31,6 @@
         <tr>
             <td scope="row">{{$post->id}}</td>
             <td>{{$post->title}}</td>
-            <!-- <td>{{$post->slug}}</td> -->
             <td>{{$post->category != null ? $post->category->name : 'Uncategorized'}}</td>
             <td><img width="100" src="{{$post->image}}" alt="{{$post->title}}"></td>
             <td class="text-center">
