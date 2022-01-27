@@ -30,15 +30,6 @@
         <div class="alert alert-danger">{{ $message }}</div>
         @enderror
     </div>
-    <div class="mb-3">
-        <label for="author" class="form-label">Author</label>
-        <input type="text" name="author" id="author" class="form-control @error('author') is-invalid @enderror"
-            aria-describedby="authorHelper" value="{{$post->author}}">
-
-        @error('author')
-        <div class="alert alert-danger">{{ $message }}</div>
-        @enderror
-    </div>
 
     <div class="mb-3">
         <label for="content" class="form-label">Content</label>
@@ -48,6 +39,19 @@
         <div class="alert alert-danger">{{ $message }}</div>
         @enderror
     </div>
+
+    <div class="mb-3">
+        <label for="category_id" class="form-label">Categories</label>
+        <select class="form-control @error('category_id') is-invalid @enderror" name="category_id" id="category_id">
+            <option value="">Uncategorized</option>
+
+            @foreach($categories as $category)
+            <option value="{{$category->id}}" {{$category->id === $post->category->id ? 'selected' : ''}}>
+                {{$category->name}}</option>
+            @endforeach
+        </select>
+    </div>
+
     <button type="submit" class="btn btn-dark">Save</button>
 </form>
 @endsection

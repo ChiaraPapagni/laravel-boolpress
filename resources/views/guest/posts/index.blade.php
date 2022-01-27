@@ -10,7 +10,7 @@
 
             <h4>{{$post->title}}</h4>
             <small class="text-muted">
-                By <strong> {{$post->author}}</strong> | Post on {{$post->created_at}}
+                By <strong> author</strong> | Post on {{$post->created_at}}
             </small>
 
             <p class="clamp-3 mb-0">

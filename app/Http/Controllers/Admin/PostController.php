@@ -45,7 +45,6 @@ class PostController extends Controller
         $validated = $request->validate([
             'title' => ['required', 'unique:posts', 'max:200'],
             'image' => 'nullable',
-            'author' => 'nullable',
             'content' => 'nullable',
             'category_id' => ['nullable', 'exists:categories,id'],
         ]);
@@ -96,8 +95,8 @@ class PostController extends Controller
                 'max:200',
             ],
             'image' => 'nullable',
-            'author' => 'nullable',
             'content' => 'nullable',
+            'category_id' => ['nullable', 'exists:categories,id'],
         ]);
 
         $post->update($validated);

@@ -9,9 +9,9 @@
 
             <h4>{{$post->title}}</h4>
             <small class="text-muted">
-                By <strong> {{$post->author}}</strong> | Post on {{$post->created_at}}
+                By <strong> author</strong> | Post on {{$post->created_at}}
             </small>
-
+            <h6 class="my-1">Category: {{$post->category != null ? $post->category->name : 'Uncategorized'}}</h6>
             <p>
                 {{$post->content}}
             </p>
