@@ -3,8 +3,11 @@
 namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
+use App\Models\Category;
 use App\Models\Post;
 use Illuminate\Http\Request;
+use Illuminate\Support\Str;
+use Illuminate\Validation\Rule;
 
 class PostController extends Controller
 {
@@ -27,7 +30,8 @@ class PostController extends Controller
      */
     public function create()
     {
-        return view('admin.posts.create');
+        $categories = Category::all();
+        return view('admin.posts.create', compact('categories'));
     }
 
     /**
@@ -39,10 +43,11 @@ class PostController extends Controller
     public function store(Request $request)
     {
         $validated = $request->validate([
-            'title' => 'required',
+            'title' => ['required', 'unique:posts', 'max:200'],
             'image' => 'nullable',
             'author' => 'nullable',
             'content' => 'nullable',
+            'category_id' => ['nullable', 'exists:categories,id'],
         ]);
 
         //ddd($validated);
@@ -71,7 +76,8 @@ class PostController extends Controller
      */
     public function edit(Post $post)
     {
-        return view('admin.posts.edit', compact('post'));
+        $categories = Category::all();
+        return view('admin.posts.edit', compact('post', 'categories'));
     }
 
     /**
@@ -84,7 +90,11 @@ class PostController extends Controller
     public function update(Request $request, Post $post)
     {
         $validated = $request->validate([
-            'title' => 'required',
+            'title' => [
+                'required',
+                Rule::unique('posts')->ignore($post->id),
+                'max:200',
+            ],
             'image' => 'nullable',
             'author' => 'nullable',
             'content' => 'nullable',
