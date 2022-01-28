@@ -22,7 +22,17 @@
                 {{$post->content}}
             </p>
 
-            <a class="btn btn-primary mt-4 text-white" href="{{route('posts.index')}}" role="button">
+            <p>
+                @forelse($post->tags as $tag)
+                <a href="{{route('tags.posts', $tag->slug)}}" class="badge bg-info">
+                    {{$tag->name}}
+                </a>
+                @empty
+                <span class="badge bg-dark">Untagged</span>
+                @endforelse
+            </p>
+
+            <a class="btn btn-primary mt-3 text-white" href="{{route('posts.index')}}" role="button">
                 <i class="fas fa-arrow-left"></i> Back
             </a>
         </div>

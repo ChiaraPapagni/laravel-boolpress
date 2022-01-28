@@ -11298,3 +11298,10 @@ nav > .container .nav-item > a:hover {
   -webkit-box-orient: vertical;
   overflow: hidden;
 }
+
+p > a.badge {
+  text-decoration: none;
+}
+p > a.badge:hover {
+  color: white;
+}

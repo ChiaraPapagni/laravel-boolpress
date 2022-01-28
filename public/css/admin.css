@@ -11308,3 +11308,10 @@ textarea.form-control-lg {
 .sidebar .nav-link.active {
   color: #2470dc;
 }
+
+p > a.badge {
+  text-decoration: none;
+}
+p > a.badge:hover {
+  color: white;
+}

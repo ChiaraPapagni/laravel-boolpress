@@ -15,13 +15,13 @@ body {
 
 /* Header */
 nav>.container {
-    max-width: 100%!important;
+    max-width: 100% !important;
 
-    .nav-item >a {
+    .nav-item>a {
         font-family: "Segoe UI";
         font-size: 16px;
         font-weight: 600;
-        color: #003c56!important;
+        color: #003c56 !important;
 
         &:hover {
             opacity: .85;
@@ -31,36 +31,45 @@ nav>.container {
 
 /* Main */
 .text {
-    width: 75%;    
-    text-align: center; 
+    width: 75%;
+    text-align: center;
 
     .display-3 {
         font-family: 'Recoleta', sans-serif;
         font-size: 48px;
         font-weight: 500;
-        color: #117ac9;   
-        margin-bottom: 3rem;                   
+        color: #117ac9;
+        margin-bottom: 3rem;
     }
 
     .lead {
         font-size: 29px;
         font-weight: 400;
-        color: #043959;   
+        color: #043959;
         line-height: 40px;
     }
 }
 
 .post {
     img {
-    width: 100%;
+        width: 100%;
     }
+
     width: 80%;
     margin: auto;
 }
 
 .clamp-3 {
-  display: -webkit-box;
-  -webkit-line-clamp: 3;
-  -webkit-box-orient: vertical;  
-  overflow: hidden;
+    display: -webkit-box;
+    -webkit-line-clamp: 3;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+}
+
+p>a.badge {
+    text-decoration: none;
+
+    &:hover {
+        color: white;
+    }
 }
