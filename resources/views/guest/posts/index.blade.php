@@ -10,7 +10,14 @@
 
             <h4>{{$post->title}}</h4>
             <small class="text-muted">
-                By <strong> author</strong> | Post on {{$post->created_at}}
+                By <strong> author</strong> | in
+
+                @if($post->category)
+                <a href="{{route('categories.posts', $post->category->slug)}}">{{$post->category->name}}</a>
+                @else
+                <span>'Uncategorized'</span>
+                @endif
+
             </small>
 
             <p class="clamp-3 mb-0">

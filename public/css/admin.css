@@ -11304,6 +11304,7 @@ textarea.form-control-lg {
   text-transform: uppercase;
 }
 
-.sidebar .nav-link:hover, .sidebar .nav-link.active {
+.sidebar .nav-link:hover,
+.sidebar .nav-link.active {
   color: #2470dc;
 }

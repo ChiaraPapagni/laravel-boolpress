@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Post;
+use App\Models\Category;
 use Illuminate\Http\Request;
 
 class PostController extends Controller
@@ -15,7 +16,9 @@ class PostController extends Controller
     public function index()
     {
         $posts = Post::orderBy('id', 'desc')->paginate(10);
-        return view('guest.posts.index', compact('posts'));
+        $categories = Category::all();
+
+        return view('guest.posts.index', compact('posts', 'categories'));
     }
 
     /**
@@ -24,8 +27,8 @@ class PostController extends Controller
      * @param  \App\Models\Post  $post
      * @return \Illuminate\Http\Response
      */
-    public function show(Post $post)
+    public function show(Post $post, Category $category)
     {
-        return view('guest.posts.show', compact('post'));
+        return view('guest.posts.show', compact('post', 'category'));
     }
 }

@@ -66,6 +66,14 @@
                                 </a>
                             </li>
 
+                            <li class="nav-item">
+                                <a class="nav-link {{Route::is('admin.categories.*') ? 'active' : '' }}"
+                                    href="{{route('admin.categories.index')}}">
+                                    <i class="fas fa-bookmark fa-fw"></i>
+                                    Categories
+                                </a>
+                            </li>
+
                         </ul>
 
                     </div>

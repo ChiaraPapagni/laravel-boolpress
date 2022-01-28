@@ -37,6 +37,27 @@
                 </div>
             </div>
         </div>
+        <div class="col-sm-6">
+            <div class="card text-center my-4">
+                <div class="card-body">
+                    <h3 class="card-title">Category</h3>
+                    <a class="btn btn-primary w-100 text-white" href="" role="button">
+                        Add new Category
+                    </a>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-sm-6">
+            <div class="card text-center my-4">
+                <div class="card-body">
+                    <h3 class="card-title">Tags</h3>
+                    <a class="btn btn-primary w-100 text-white" href="" role="button">
+                        Add new Tags
+                    </a>
+                </div>
+            </div>
+        </div>
     </div>
 </div>
 

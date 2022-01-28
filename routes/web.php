@@ -20,6 +20,11 @@ Route::get('/', function () {
 
 Route::resource('posts', PostController::class)->only(['index', 'show']);
 
+Route::get(
+    'categories/{category:slug}/posts',
+    'CategoryController@posts'
+)->name('categories.posts');
+
 Auth::routes();
 
 Route::namespace('Admin')
@@ -29,4 +34,5 @@ Route::namespace('Admin')
     ->group(function () {
         Route::get('/', 'HomeController@index')->name('dashboard');
         Route::resource('posts', PostController::class);
+        Route::resource('categories', CategoryController::class);
     });
