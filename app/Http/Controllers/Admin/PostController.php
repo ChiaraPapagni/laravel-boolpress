@@ -5,8 +5,10 @@ namespace App\Http\Controllers\Admin;
 use App\Http\Controllers\Controller;
 use App\Models\Category;
 use App\Models\Post;
+use App\Models\Tag;
 use Illuminate\Http\Request;
 use Illuminate\Validation\Rule;
+use Illuminate\Support\Str;
 
 class PostController extends Controller
 {
@@ -17,9 +19,9 @@ class PostController extends Controller
      */
     public function index()
     {
-        return view('admin.posts.index', [
-            'posts' => Post::orderBy('id', 'desc')->paginate(8),
-        ]);
+        $posts = Post::orderByDesc('id')->paginate(8);
+
+        return view('admin.posts.index', compact('posts'));
     }
 
     /**
@@ -30,7 +32,9 @@ class PostController extends Controller
     public function create()
     {
         $categories = Category::all();
-        return view('admin.posts.create', compact('categories'));
+        $tags = Tag::all();
+
+        return view('admin.posts.create', compact('categories', 'tags'));
     }
 
     /**
@@ -48,9 +52,14 @@ class PostController extends Controller
             'category_id' => ['nullable', 'exists:categories,id'],
         ]);
 
-        //ddd($validated);
+        $post = Post::create($validated);
 
-        Post::create($validated);
+        if ($request->has('tags')) {
+            $request->validate([
+                'tags' => ['nullable', 'exists:tags,id'],
+            ]);
+            $post->tags()->attach($request->tags);
+        }
 
         return redirect()->route('admin.posts.index');
     }
@@ -75,7 +84,9 @@ class PostController extends Controller
     public function edit(Post $post)
     {
         $categories = Category::all();
-        return view('admin.posts.edit', compact('post', 'categories'));
+        $tags = Tag::all();
+
+        return view('admin.posts.edit', compact('post', 'categories', 'tags'));
     }
 
     /**
@@ -99,6 +110,13 @@ class PostController extends Controller
         ]);
 
         $post->update($validated);
+
+        if ($request->has('tags')) {
+            $request->validate([
+                'tags' => ['nullable', 'exists:tags,id'],
+            ]);
+            $post->tags()->sync($request->tags);
+        }
 
         return redirect()
             ->route('admin.posts.index')

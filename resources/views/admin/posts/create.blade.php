@@ -49,6 +49,16 @@
         </select>
     </div>
 
+    <div class="mb-3">
+        <label for="tags" class="form-label">Tags</label>
+        <select multiple class="form-select" name="tags[]" id="tags">
+            <option disabled>Select all tags</option>
+            @foreach($tags as $tag)
+            <option value="{{$tag->id}}">{{$tag->name}}</option>
+            @endforeach
+        </select>
+    </div>
+
     <button type="submit" class="btn btn-dark">Save</button>
 </form>
 @endsection
