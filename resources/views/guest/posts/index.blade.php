@@ -15,10 +15,15 @@
                 @if($post->category)
                 <a href="{{route('categories.posts', $post->category->slug)}}">{{$post->category->name}}</a>
                 @else
-                <span>'Uncategorized'</span>
+                <span>Uncategorized</span>
                 @endif
-
             </small>
+
+            @if($post->tag)
+            <a href="{{route('tags.posts', $post->tag->slug)}}">{{$post->tag->name}}</a>
+            @else
+            <span>Untagged</span>
+            @endif
 
             <p class="clamp-3 mb-0">
                 {{$post->content}}

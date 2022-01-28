@@ -60,17 +60,18 @@
                             </li>
 
                             <li class="nav-item">
-                                <a class="nav-link {{Route::is('admin.products.*') ? 'active' : '' }}" href="#">
-                                    <i class="fas fa-shopping-bag fa-fw"></i>
-                                    Products
-                                </a>
-                            </li>
-
-                            <li class="nav-item">
                                 <a class="nav-link {{Route::is('admin.categories.*') ? 'active' : '' }}"
                                     href="{{route('admin.categories.index')}}">
                                     <i class="fas fa-bookmark fa-fw"></i>
                                     Categories
+                                </a>
+                            </li>
+
+                            <li class="nav-item">
+                                <a class="nav-link {{Route::is('admin.tags.*') ? 'active' : '' }}"
+                                    href="{{route('admin.tags.index')}}">
+                                    <i class="fas fa-hashtag fa-fw"></i>
+                                    Tags
                                 </a>
                             </li>
 

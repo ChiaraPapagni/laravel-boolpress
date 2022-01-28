@@ -7,23 +7,23 @@
 <div class="container">
     <div class="row">
         <div class="col-md-6">
-            <h2>Categories</h2>
+            <h2>Tags</h2>
             <ul class="list-group">
-                @foreach($categories as $category)
+                @foreach($tags as $tag)
                 <li class="list-group-item d-flex align-items-center justify-content-between">
                     <a class="badge rounded-pill bg-primary text-decoration-none"
-                        href="{{route('categories.posts', $category->slug)}}">
-                        {{ $category->posts()->count() }}
+                        href="{{route('tags.posts', $tag->slug)}}">
+                        {{ $tag->posts()->count() }}
                     </a>
 
-                    <form action="{{route('admin.categories.update', $category->id)}}" method="post">
+                    <form action="{{route('admin.tags.update', $tag->id)}}" method="post">
                         @csrf
                         @method('PATCH')
 
-                        <input class="border-0" type="text" name="name" id="name" value="{{$category->name}}">
+                        <input class="border-0" type="text" name="name" id="name" value="{{$tag->name}}">
                     </form>
 
-                    <form action="{{route('admin.categories.destroy', $category->id)}}" method="post">
+                    <form action="{{route('admin.tags.destroy', $tag->id)}}" method="post">
                         @csrf
                         @method('DELETE')
                         <button type="submit" class="btn text-danger">
@@ -36,15 +36,15 @@
         </div>
 
         <div class="col-md-6">
-            <h2>Add Category</h2>
-            <form action="{{route('admin.categories.store')}}" method="post">
+            <h2>Add Tag</h2>
+            <form action="{{route('admin.tags.store')}}" method="post">
                 @csrf
                 <div class="mb-3">
-                    <input type="text" name="name" id="name" class="form-control" placeholder="Category name here"
+                    <input type="text" name="name" id="name" class="form-control" placeholder="Tag name here"
                         aria-describedby="nameHelper">
-                    <small id="nameHelper" class="text-muted">Type a category name, max: 200</small>
+                    <small id="nameHelper" class="text-muted">Type a tag name, max: 200</small>
                 </div>
-                <button type="submit" class="btn btn-dark">Add category</button>
+                <button type="submit" class="btn btn-dark">Add tag</button>
             </form>
         </div>
     </div>

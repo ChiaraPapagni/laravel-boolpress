@@ -25,6 +25,8 @@ Route::get(
     'CategoryController@posts'
 )->name('categories.posts');
 
+Route::get('tags/{tag:slug}/posts', 'TagController@posts')->name('tags.posts');
+
 Auth::routes();
 
 Route::namespace('Admin')
@@ -35,4 +37,5 @@ Route::namespace('Admin')
         Route::get('/', 'HomeController@index')->name('dashboard');
         Route::resource('posts', PostController::class);
         Route::resource('categories', CategoryController::class);
+        Route::resource('tags', TagController::class);
     });

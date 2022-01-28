@@ -2,7 +2,7 @@
 
 @section('content')
 <div class="container">
-    <div class="card mt-4">
+    <div class="card my-4">
         <h4 class="card-header">{{ __('Welcome to the dashboard!') }}</h4>
 
         <div class="card-body">
@@ -18,7 +18,7 @@
 
     <div class="row">
         <div class="col-sm-6">
-            <div class="card text-center my-4">
+            <div class="card text-center mb-4">
                 <div class="card-body">
                     <h3 class="card-title">Posts</h3>
                     <a class="btn btn-primary w-100 text-white" href="{{route('admin.posts.create')}}" role="button">
@@ -28,20 +28,11 @@
             </div>
         </div>
         <div class="col-sm-6">
-            <div class="card text-center my-4">
-                <div class="card-body">
-                    <h3 class="card-title">Products</h3>
-                    <a class="btn btn-primary w-100 text-white" href="" role="button">
-                        Add new Products
-                    </a>
-                </div>
-            </div>
-        </div>
-        <div class="col-sm-6">
-            <div class="card text-center my-4">
+            <div class="card text-center mb-4">
                 <div class="card-body">
                     <h3 class="card-title">Category</h3>
-                    <a class="btn btn-primary w-100 text-white" href="" role="button">
+                    <a class="btn btn-primary w-100 text-white" href="{{route('admin.categories.index')}}"
+                        role="button">
                         Add new Category
                     </a>
                 </div>
@@ -49,10 +40,10 @@
         </div>
 
         <div class="col-sm-6">
-            <div class="card text-center my-4">
+            <div class="card text-center mb-4">
                 <div class="card-body">
                     <h3 class="card-title">Tags</h3>
-                    <a class="btn btn-primary w-100 text-white" href="" role="button">
+                    <a class="btn btn-primary w-100 text-white" href="{{route('admin.tags.index')}}" role="button">
                         Add new Tags
                     </a>
                 </div>
