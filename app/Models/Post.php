@@ -8,7 +8,13 @@ use Illuminate\Database\Eloquent\Relations\BelongsToMany;
 
 class Post extends Model
 {
-    protected $fillable = ['title', 'image', 'content', 'category_id'];
+    protected $fillable = [
+        'title',
+        'image',
+        'content',
+        'category_id',
+        'user_id',
+    ];
 
     public function category(): BelongsTo
     {
@@ -18,5 +24,10 @@ class Post extends Model
     public function tags(): BelongsToMany
     {
         return $this->belongsToMany(Tag::class);
+    }
+
+    public function user(): BelongsTo
+    {
+        return $this->belongsTo(User::class);
     }
 }
