@@ -23,8 +23,8 @@
 
     <div class="mb-3">
         <label for="image" class="form-label">Image</label>
-        <input type="text" name="image" id="image" class="form-control @error('image') is-invalid @enderror"
-            placeholder="https://" aria-describedby="imageHelper" value="{{$post->image}}">
+        <input type="file" name="image" id="image" class="form-control @error('image') is-invalid @enderror"
+            placeholder="https://" aria-describedby="imageHelper" accept="images/*">
 
         @error('image')
         <div class="alert alert-danger">{{ $message }}</div>
