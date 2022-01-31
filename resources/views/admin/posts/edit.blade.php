@@ -3,7 +3,7 @@
 
 @section('content')
 
-<h1>Update Post {{$post->title}}</h1>
+<h1>Update Post: {{$post->title}}</h1>
 
 @include('partials.errors')
 
@@ -22,9 +22,17 @@
     </div>
 
     <div class="mb-3">
-        <label for="image" class="form-label">Image</label>
-        <input type="file" name="image" id="image" class="form-control @error('image') is-invalid @enderror"
-            placeholder="https://" aria-describedby="imageHelper" accept="images/*">
+        <div class="row">
+            <div class="col-4">
+                <img src="{{asset('storage/' . $post->image)}}" alt="{{$post->title}}" class="img-fluid">
+            </div>
+            <div class="col">
+                <label for="image" class="form-label">Change Image</label>
+                <input type="file" name="image" id="image" aria-describedby="imageHelper" accept="images/*"
+                    class="form-control @error('image') is_invalid @enderror">
+                <small id="imageHelper" class="text-muted">Add your post image here. [Max 500kb]</small>
+            </div>
+        </div>
 
         @error('image')
         <div class="alert alert-danger">{{ $message }}</div>
@@ -62,6 +70,6 @@
         </select>
     </div>
 
-    <button type="submit" class="btn btn-dark">Save</button>
+    <button type="submit" class="btn btn-dark">Update</button>
 </form>
 @endsection
