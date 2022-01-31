@@ -7,7 +7,7 @@
 
 @include('partials.errors')
 
-<form action="{{route('admin.posts.update', $post->id)}}" method="post">
+<form action="{{route('admin.posts.update', $post->id)}}" method="post" enctype="multipart/form-data">
     @csrf
     @method('PUT')
 
