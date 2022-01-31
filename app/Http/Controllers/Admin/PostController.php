@@ -9,6 +9,7 @@ use App\Models\Tag;
 use Illuminate\Http\Request;
 use Illuminate\Validation\Rule;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Storage;
 
 class PostController extends Controller
 {
@@ -50,10 +51,15 @@ class PostController extends Controller
     {
         $validated = $request->validate([
             'title' => ['required', 'unique:posts', 'max:200'],
-            'image' => 'nullable',
+            'image' => ['nullable', 'mimes:jpg,jpeg,bmp,png', 'max:500'],
             'content' => 'nullable',
             'category_id' => ['nullable', 'exists:categories,id'],
         ]);
+
+        if ($request->file('image')) {
+            $image_path = Storage::put('post_images', $request->file('image'));
+            $validated['image'] = $image_path;
+        }
 
         $validated['user_id'] = Auth::id();
 
@@ -117,10 +123,19 @@ class PostController extends Controller
                     Rule::unique('posts')->ignore($post->id),
                     'max:200',
                 ],
-                'image' => 'nullable',
+                'image' => ['nullable', 'mimes:jpg,jpeg,bmp,png', 'max:500'],
                 'content' => 'nullable',
                 'category_id' => ['nullable', 'exists:categories,id'],
             ]);
+
+            if ($request->file('image')) {
+                Storage::delete($post->image);
+                $image_path = Storage::put(
+                    'post_images',
+                    $request->file('image')
+                );
+                $validated['image'] = $image_path;
+            }
 
             $post->update($validated);
 
