@@ -11,7 +11,7 @@
         @forelse($posts as $post)
         <div class="col-md-4">
             <div class="card">
-                <img class="card-img-top" src="{{$post->image}}" alt="{{$post->title}}">
+                <img class="card-img-top" src="{{asset('storage/' . $post->image)}}" alt="{{$post->title}}">
                 <div class="card-body">
                     <a href="{{route('posts.show', $post->id)}}">
                         <h4 class="card-title">{{$post->title}}</h4>

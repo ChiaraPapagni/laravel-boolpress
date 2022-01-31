@@ -6,7 +6,7 @@
     <div class="col-md-8 m-auto">
         @foreach($posts as $post)
         <div class="mb-5">
-            <img src="{{$post->image}}" alt="{{$post->title}}" height="290px">
+            <img src="{{asset('storage/' . $post->image)}}" alt="{{$post->title}}" height="290px">
 
             <h4>{{$post->title}}</h4>
             <small class="text-muted">

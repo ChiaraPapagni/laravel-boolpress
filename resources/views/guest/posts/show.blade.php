@@ -5,7 +5,7 @@
 <div class="container">
     <div class="m-auto">
         <div class="post">
-            <img src="{{$post->image}}" alt="{{$post->title}}">
+            <img src="{{asset('storage/' . $post->image)}}" alt="{{$post->title}}">
 
             <h4>{{$post->title}}</h4>
             <small class="text-muted">

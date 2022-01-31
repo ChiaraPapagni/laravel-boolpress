@@ -32,7 +32,7 @@
             <td scope="row">{{$post->id}}</td>
             <td>{{$post->title}}</td>
             <td>{{$post->category != null ? $post->category->name : 'Uncategorized'}}</td>
-            <td><img width="100" src="{{$post->image}}" alt="{{$post->title}}"></td>
+            <td><img width="100" src="{{asset('storage/' . $post->image)}}" alt="{{$post->title}}"></td>
             <td class="text-center">
                 <a href="{{route('admin.posts.show', $post->id )}}">
                     <i class="fas fa-eye fa-fw"></i>
