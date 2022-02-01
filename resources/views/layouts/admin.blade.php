@@ -46,7 +46,7 @@
                             <li class="nav-item">
                                 <a class="nav-link {{Route::is('admin.dashboard') ? 'active' : '' }}"
                                     aria-current="page" href="{{route('admin.dashboard')}}">
-                                    <i class="fas fa-tachometer-alt fa-fw"></i>
+                                    <i class="fas fa-shield-alt fa-fw"></i>
                                     Dashboard
                                 </a>
                             </li>
@@ -62,7 +62,7 @@
                             <li class="nav-item">
                                 <a class="nav-link {{Route::is('admin.categories.*') ? 'active' : '' }}"
                                     href="{{route('admin.categories.index')}}">
-                                    <i class="fas fa-bookmark fa-fw"></i>
+                                    <i class="far fa-bookmark fa-fw"></i>
                                     Categories
                                 </a>
                             </li>
@@ -72,6 +72,14 @@
                                     href="{{route('admin.tags.index')}}">
                                     <i class="fas fa-hashtag fa-fw"></i>
                                     Tags
+                                </a>
+                            </li>
+
+                            <li class="nav-item">
+                                <a class="nav-link {{Route::is('admin.contacts.*') ? 'active' : '' }}"
+                                    href="{{route('admin.contacts.index')}}">
+                                    <i class="far fa-envelope fa-fw"></i>
+                                    Messages
                                 </a>
                             </li>
 
