@@ -37,3 +37,6 @@ Route::namespace('Admin')
         Route::resource('categories', CategoryController::class);
         Route::resource('tags', TagController::class);
     });
+
+Route::get('contacts', 'ContactController@show_contact_page')->name('contacts');
+Route::post('contacts', 'ContactController@store')->name('contacts.send');
