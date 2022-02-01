@@ -32,6 +32,12 @@
                     aria-describedby="emailHelper" value="{{old('email')}}">
                 <small id="emailHelper" class="text-muted">Type your email here. </small>
             </div>
+            <div class="col">
+                <label for="subject" class="form-label">Subject</label>
+                <input type="text" name="subject" id="subject" class="form-control" placeholder="Subscription"
+                    aria-describedby="subjectHelper" value="{{old('subject')}}">
+                <small id="subjectHelper" class="text-muted">Type the message subject here. </small>
+            </div>
         </div>
 
         <div class="my-3">

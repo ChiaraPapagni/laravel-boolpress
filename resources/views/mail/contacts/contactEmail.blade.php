@@ -1,6 +1,8 @@
 @component('mail::message')
 # Introduction
 
+Subject: {{$contact->subject}}<br>
+
 {{$contact->message}}
 
 @component('mail::panel')
