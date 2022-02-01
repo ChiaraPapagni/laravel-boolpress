@@ -36,6 +36,11 @@ Route::namespace('Admin')
         Route::resource('posts', PostController::class);
         Route::resource('categories', CategoryController::class);
         Route::resource('tags', TagController::class);
+        Route::resource('contacts', ContactController::class)->only([
+            'index',
+            'show',
+            'destroy',
+        ]);
     });
 
 Route::get('contacts', 'ContactController@show_contact_page')->name('contacts');
