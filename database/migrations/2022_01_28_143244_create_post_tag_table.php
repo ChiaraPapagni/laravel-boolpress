@@ -19,16 +19,14 @@ class CreatePostTagTable extends Migration
                 ->foreign('post_id')
                 ->references('id')
                 ->on('posts')
-                ->onDelete('set null');
+                ->cascadeOnDelete();
 
             $table->unsignedBigInteger('tag_id')->nullable();
             $table
                 ->foreign('tag_id')
                 ->references('id')
                 ->on('tags')
-                ->onDelete('set null');
-
-            $table->primary(['post_id', 'tag_id']);
+                ->cascadeOnDelete();
         });
     }
 
