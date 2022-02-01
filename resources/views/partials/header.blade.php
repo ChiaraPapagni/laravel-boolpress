@@ -16,7 +16,7 @@
                         <a class="nav-link" href="{{route('posts.index')}}">Blog</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="#">Prodotti</a>
+                        <a class="nav-link" href="{{route('contacts')}}">Contacts</a>
                     </li>
                 </ul>
 
