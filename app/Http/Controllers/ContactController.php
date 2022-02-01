@@ -2,7 +2,10 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Contact;
+use App\Mail\ContactFormMail;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Mail;
 
 class ContactController extends Controller
 {
@@ -21,9 +24,7 @@ class ContactController extends Controller
 
         $contact = Contact::create($validated);
 
-        Mail::to('admin@boolpress.com')->send(
-            new MarkdownContactFormMail($contact)
-        );
+        Mail::to('admin@boolpress.com')->send(new ContactFormMail($contact));
 
         return redirect()
             ->back()
