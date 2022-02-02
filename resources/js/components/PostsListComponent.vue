@@ -14,6 +14,7 @@
 
 <script>
 export default {
+  name: "posts-list",
   data() {
     return {
       posts: null,
