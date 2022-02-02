@@ -1,5 +1,7 @@
 <?php
 
+use App\Models\Post;
+use App\Http\Resources\PostResource;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
 
@@ -45,3 +47,7 @@ Route::namespace('Admin')
 
 Route::get('contacts', 'ContactController@show_contact_page')->name('contacts');
 Route::post('contacts', 'ContactController@store')->name('contacts.send');
+
+Route::get('/blog', function () {
+    return view('guest.blog.index');
+});
