@@ -22,3 +22,5 @@ Route::middleware('auth:api')->get('/user', function (Request $request) {
 /* Route::get('posts', function () {
     return Post::with(['category'])->get();
 }); */
+
+Route::get('posts', 'API\BlogController@index');
