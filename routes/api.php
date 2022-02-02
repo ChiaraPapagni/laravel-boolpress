@@ -20,7 +20,7 @@ Route::middleware('auth:api')->get('/user', function (Request $request) {
 });
 
 /* Route::get('posts', function () {
-    return Post::with(['category'])->get();
+    return Post::with(['category', 'tags'])->get();
 }); */
 
-Route::get('posts', 'API\BlogController@index');
+Route::get('blog', 'API\PostController@index');
