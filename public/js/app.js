@@ -5143,6 +5143,9 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
 /* harmony default export */ __webpack_exports__["default"] = ({
   name: "posts-list",
   data: function data() {
@@ -5155,7 +5158,7 @@ __webpack_require__.r(__webpack_exports__);
 
     axios.get("api/posts").then(function (response) {
       console.log(response);
-      _this.posts = response.data.data;
+      _this.posts = response.data;
     });
     console.log("Component mounted.");
   }
@@ -41452,24 +41455,35 @@ var render = function () {
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
-  return _c("div", { staticClass: "container" }, [
+  return _c("div", [
     _c(
       "div",
-      { staticClass: "col-md-8 m-auto" },
+      { staticClass: "games d-flex flex-wrap justify-content-center" },
       _vm._l(_vm.posts, function (post, i) {
-        return _c("div", { key: i, staticClass: "post" }, [
-          _c("img", {
-            attrs: { src: "/storage/" + post.image, alt: post.title },
-          }),
-          _vm._v(" "),
-          _c("h4", [_vm._v(_vm._s(post.title))]),
-          _vm._v(" "),
-          _c("small", { staticClass: "text-muted" }, [
-            _vm._v("\n        By "),
-            _c("strong", [_vm._v(" author")]),
-            _vm._v(" | Post on " + _vm._s(post.created_at) + "\n      "),
-          ]),
-        ])
+        return _c(
+          "div",
+          { key: i, staticClass: "post w-25 m-2" },
+          [
+            _c("img", {
+              attrs: { src: "/storage/" + post.image, alt: post.title },
+            }),
+            _vm._v(" "),
+            _c("h4", [_vm._v(_vm._s(post.title))]),
+            _vm._v(" "),
+            _c("small", { staticClass: "text-muted" }, [
+              _vm._v("\n        By "),
+              _c("strong", [_vm._v(" author")]),
+              _vm._v(" | Post on " + _vm._s(post.created_at) + "\n      "),
+            ]),
+            _vm._v(" "),
+            _vm._l(post.category, function (category, i) {
+              return _c("div", { key: i }, [
+                _c("span", [_vm._v(_vm._s(category.name))]),
+              ])
+            }),
+          ],
+          2
+        )
       }),
       0
     ),
