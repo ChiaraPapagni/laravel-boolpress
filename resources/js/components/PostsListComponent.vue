@@ -7,9 +7,6 @@
         <small class="text-muted">
           By <strong> author</strong> | Post on {{ post.created_at }}
         </small>
-        <div v-for="(category, i) in post.category" :key="i">
-          <span>{{ category.name }}</span>
-        </div>
       </div>
     </div>
   </div>

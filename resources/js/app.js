@@ -8,6 +8,61 @@ require('./bootstrap');
 
 window.Vue = require('vue');
 
+/** 
+ * Vue-router 
+ * 
+ * 0. If using a module system (e.g. via vue-cli), 
+ * import Vue and VueRouter and then call `Vue.use(VueRouter)`.
+ * 
+ * 1. Define route components.
+ * These can be imported from other files
+ * 
+ * 2. Define some routes
+ * Each route should map to a component. 
+ * The "component" can either be an actual component constructor created via
+ * `Vue.extend()`, or just a component options object.
+ * 
+ * 3. Create the router instance and pass the `routes` option.
+ * You can pass in additional options here.
+ * 
+ * 4. Create and mount the root instance. 
+ * Make sure to inject the router with the router option to make the whole app router-aware.
+ */
+import VueRouter from 'vue-router'
+Vue.use(VueRouter)
+
+const Home = Vue.component('Home', require('./pages/Home.vue').default);
+const About = Vue.component('About', require('./pages/About.vue').default);
+const Contacts = Vue.component('Contacts', require('./pages/Contacts.vue').default);
+const _404 = Vue.component('for-zero-for', require('./pages/404.vue').default);
+
+const routes = [
+    {
+        path: '/',
+        name: 'home',
+        component: Home
+    },
+    {
+        path: '/about',
+        name: 'about',
+        component: About
+    },
+    {
+        path: '/contacts',
+        name: 'contacts',
+        component: Contacts
+    },
+    {
+        path: '*',
+        component: _404
+    }
+];
+
+const router = new VueRouter({
+    mode: 'history',
+    routes // short for `routes: routes`
+})
+
 /**
  * The following block of code may be used to automatically register your
  * Vue components. It will recursively scan this directory for the Vue
@@ -29,5 +84,6 @@ Vue.component('posts-list', require('./components/PostsListComponent').default);
  */
 
 const app = new Vue({
+    router,
     el: '#app',
 });
