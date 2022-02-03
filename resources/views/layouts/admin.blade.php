@@ -25,7 +25,7 @@
 <body>
     <div id="app">
         <header class="navbar navbar-dark sticky-top bg-dark flex-md-nowrap shadow">
-            <a class="navbar-brand" href="{{ route('home') }}">
+            <a class="navbar-brand" href="/">
                 <img src="{{ asset('img/logo.png') }}" alt="boolpress Logo">
             </a>
 

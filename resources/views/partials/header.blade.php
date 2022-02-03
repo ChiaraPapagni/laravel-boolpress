@@ -13,13 +13,13 @@
                 <!-- Left Side Of Navbar -->
                 <ul class="navbar-nav mr-auto">
                     <li class="nav-item">
-                        <a class="nav-link" href="{{route('posts.index')}}">Blog</a>
+                        <a class="nav-link" href="#">Blog</a>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link" href="{{url('/blog')}}">Blog SPA</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="{{route('contacts')}}">Contacts</a>
+                        <a class="nav-link" href="#">Contacts</a>
                     </li>
                 </ul>
 

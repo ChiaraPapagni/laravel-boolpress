@@ -5306,6 +5306,15 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
 /* harmony default export */ __webpack_exports__["default"] = ({
   data: function data() {
     return {
@@ -41911,6 +41920,26 @@ var render = function () {
                   : _c("strong", [_vm._v("//")]),
               ]),
             ]),
+            _vm._v(" "),
+            _c("p"),
+            _vm._v(" "),
+            _vm.post.tags.length > 0
+              ? _c(
+                  "p",
+                  _vm._l(_vm.post.tags, function (tag, i) {
+                    return _c("span", { key: i }, [
+                      _c("span", { staticClass: "badge bg-info me-2" }, [
+                        _vm._v(_vm._s(tag.name)),
+                      ]),
+                    ])
+                  }),
+                  0
+                )
+              : _c("p", [
+                  _c("span", { staticClass: "badge bg-dark" }, [
+                    _vm._v("Untagged"),
+                  ]),
+                ]),
           ]),
         ]),
   ])

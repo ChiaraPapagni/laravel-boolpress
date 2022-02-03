@@ -21,6 +21,15 @@
             <strong v-else>//</strong>
           </small>
         </p>
+        <p></p>
+        <p v-if="post.tags.length > 0">
+          <span v-for="(tag, i) in post.tags" :key="i">
+            <span class="badge bg-info me-2">{{ tag.name }}</span>
+          </span>
+        </p>
+        <p v-else>
+          <span class="badge bg-dark">Untagged</span>
+        </p>
       </div>
     </div>
   </div>

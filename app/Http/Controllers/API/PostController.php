@@ -56,7 +56,7 @@ class PostController extends Controller
     public function show(Post $post)
     {
         $thisPost = Post::where('id', $post->id)
-            ->with(['category'])
+            ->with(['category', 'tags'])
             ->first();
         //ddd($thisPost);
         return new PostResource($thisPost);
