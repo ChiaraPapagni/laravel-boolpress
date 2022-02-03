@@ -16,7 +16,7 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', 'PageController@index')->name('home');
+/* Route::get('/', 'PageController@index')->name('home');
 
 Route::resource('posts', PostController::class)->only(['index', 'show']);
 
@@ -25,7 +25,7 @@ Route::get(
     'CategoryController@posts'
 )->name('categories.posts');
 
-Route::get('tags/{tag:slug}/posts', 'TagController@posts')->name('tags.posts');
+Route::get('tags/{tag:slug}/posts', 'TagController@posts')->name('tags.posts'); */
 
 Auth::routes();
 
@@ -45,9 +45,13 @@ Route::namespace('Admin')
         ]);
     });
 
-Route::get('contacts', 'ContactController@show_contact_page')->name('contacts');
-Route::post('contacts', 'ContactController@store')->name('contacts.send');
+/* Route::get('contacts', 'ContactController@show_contact_page')->name('contacts');
+ Route::post('contacts', 'ContactController@store')->name('contacts.send'); */
 
-Route::get('/blog', function () {
+/* Route::get('/blog', function () {
     return view('guest.blog.index');
-});
+}); */
+
+Route::get('/{any}', function () {
+    return view('guest.welcome');
+})->where('any', '.*');

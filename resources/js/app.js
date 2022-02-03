@@ -32,15 +32,20 @@ import VueRouter from 'vue-router'
 Vue.use(VueRouter)
 
 const Home = Vue.component('Home', require('./pages/Home.vue').default);
+const Posts = Vue.component('Posts', require('./pages/Posts.vue').default);
 const About = Vue.component('About', require('./pages/About.vue').default);
 const Contacts = Vue.component('Contacts', require('./pages/Contacts.vue').default);
-const _404 = Vue.component('for-zero-for', require('./pages/404.vue').default);
 
 const routes = [
     {
         path: '/',
         name: 'home',
         component: Home
+    },
+    {
+        path: '/posts',
+        name: 'posts',
+        component: Posts
     },
     {
         path: '/about',
@@ -52,10 +57,6 @@ const routes = [
         name: 'contacts',
         component: Contacts
     },
-    {
-        path: '*',
-        component: _404
-    }
 ];
 
 const router = new VueRouter({
@@ -73,6 +74,7 @@ const router = new VueRouter({
 
 // const files = require.context('./', true, /\.vue$/i)
 // files.keys().map(key => Vue.component(key.split('/').pop().split('.')[0], files(key).default))
+Vue.component('App', require('./App.vue').default);
 
 Vue.component('example-component', require('./components/ExampleComponent.vue').default);
 Vue.component('posts-list', require('./components/PostsListComponent').default);
