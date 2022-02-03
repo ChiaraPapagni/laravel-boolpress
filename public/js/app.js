@@ -5302,6 +5302,10 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
 /* harmony default export */ __webpack_exports__["default"] = ({
   data: function data() {
     return {
@@ -5313,7 +5317,7 @@ __webpack_require__.r(__webpack_exports__);
     var _this = this;
 
     axios.get("/api/posts/" + this.$route.params.id).then(function (response) {
-      _this.game = response.data;
+      _this.post = response.data.data;
       _this.loading = false;
     })["catch"](function (error) {
       console.log(error);
@@ -41881,27 +41885,31 @@ var render = function () {
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
-  return _c("div", { staticClass: "card" }, [
+  return _c("div", { staticClass: "container mt-5" }, [
     _vm.loading
       ? _c("div", { staticClass: "text-center loading" }, [
           _c("p", { staticClass: "lead" }, [_vm._v("Loading ...")]),
         ])
-      : _c("div", { staticClass: "post" }, [
-          _c("img", {
-            staticClass: "img-fluid w--100",
-            attrs: { src: "/storage/" + _vm.post.image, alt: _vm.post.title },
-          }),
+      : _c("div", { staticClass: "post row" }, [
+          _c("div", { staticClass: "col" }, [
+            _c("img", {
+              staticClass: "img-fluid",
+              attrs: { src: "/storage/" + _vm.post.image, alt: _vm.post.title },
+            }),
+          ]),
           _vm._v(" "),
-          _c("h3", [_vm._v(_vm._s(_vm.post.title))]),
-          _vm._v(" "),
-          _c("p", [_vm._v(_vm._s(_vm.post.content))]),
-          _vm._v(" "),
-          _c("p", [
-            _c("small", [
-              _vm._v("\n        Category:\n        "),
-              _vm.post.category
-                ? _c("strong", [_vm._v(_vm._s(_vm.post.category.name))])
-                : _c("strong", [_vm._v("//")]),
+          _c("div", { staticClass: "col" }, [
+            _c("h3", [_vm._v(_vm._s(_vm.post.title))]),
+            _vm._v(" "),
+            _c("p", [_vm._v(_vm._s(_vm.post.content))]),
+            _vm._v(" "),
+            _c("p", [
+              _c("small", [
+                _vm._v("\n          Category:\n          "),
+                _vm.post.category
+                  ? _c("strong", [_vm._v(_vm._s(_vm.post.category.name))])
+                  : _c("strong", [_vm._v("//")]),
+              ]),
             ]),
           ]),
         ]),
