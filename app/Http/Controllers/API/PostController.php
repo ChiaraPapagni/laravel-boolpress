@@ -16,12 +16,12 @@ class PostController extends Controller
      */
     public function index()
     {
-        /* return Post::all(); */
-        /* return PostResource::collection(Post::all()); */
-        // return PostResource::collection(
-        //     Post::with(['category', 'tags'])
-        // )->get();
-        // return PostResource::collection(Post::with(['category'])->get());
+        /* return Post::all();
+        return PostResource::collection(Post::all());
+        return PostResource::collection(
+             Post::with(['category', 'tags'])
+        )->get();
+        return PostResource::collection(Post::with(['category'])->get()); */
 
         return Post::with(['category', 'tags'])->get();
     }
@@ -55,7 +55,11 @@ class PostController extends Controller
      */
     public function show(Post $post)
     {
-        //
+        $thisPost = Post::where('id', $post->id)
+            ->with(['category'])
+            ->first();
+        //ddd($thisPost);
+        return new PostResource($thisPost);
     }
 
     /**
