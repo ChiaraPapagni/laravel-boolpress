@@ -2,11 +2,20 @@
   <div>
     <div class="games d-flex flex-wrap justify-content-center">
       <div class="post w-25 m-2" v-for="(post, i) in posts" :key="i">
-        <img :src="'/storage/' + post.image" :alt="post.title" />
-        <h4>{{ post.title }}</h4>
-        <small class="text-muted">
-          By <strong> author</strong> | Post on {{ post.created_at }}
-        </small>
+        <div class="card">
+          <img :src="'/storage/' + post.image" :alt="post.title" />
+          <div class="card-body">
+            <h5 class="d-inline">{{ post.title }}</h5>
+            <small>More...</small>
+            <p class="card-text">
+              <small class="text-muted">
+                Category:
+                <strong v-if="post.category">{{ post.category.name }}</strong>
+                <strong v-else>//</strong>
+              </small>
+            </p>
+          </div>
+        </div>
       </div>
     </div>
   </div>
@@ -14,18 +23,8 @@
 
 <script>
 export default {
-  name: "posts-list",
-  data() {
-    return {
-      posts: null,
-    };
-  },
-  mounted() {
-    axios.get("api/posts").then((response) => {
-      console.log(response);
-      this.posts = response.data;
-    });
-    console.log("Component mounted.");
+  props: {
+    posts: Array,
   },
 };
 </script>
