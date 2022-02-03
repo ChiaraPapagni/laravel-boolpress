@@ -26,7 +26,7 @@
     <div id="app">
         @include('partials.nav')
 
-        @yield('content')
+        @yield('app')
     </div>
 </body>
 
