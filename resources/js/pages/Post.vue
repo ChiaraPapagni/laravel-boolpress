@@ -1,6 +1,10 @@
 <template>
   <div class="container mt-5">
-    <div class="text-center loading" v-if="loading">
+    <div class="page error text-center" v-if="error">
+      <p class="lead">Error 404</p>
+      <p class="lead">Page not found! Sorry</p>
+    </div>
+    <div class="text-center loading" v-else-if="loading">
       <p class="lead">Loading ...</p>
     </div>
     <div class="post row" v-else>
@@ -41,6 +45,7 @@ export default {
     return {
       loading: true,
       post: {},
+      error: false,
     };
   },
   mounted() {
@@ -52,6 +57,7 @@ export default {
       })
       .catch((error) => {
         console.log(error);
+        this.error = true;
       });
   },
 };

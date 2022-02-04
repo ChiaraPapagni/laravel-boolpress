@@ -36,6 +36,7 @@ const Posts = Vue.component('Posts', require('./pages/Posts.vue').default);
 const Post = Vue.component('Post', require('./pages/Post.vue').default);
 const About = Vue.component('About', require('./pages/About.vue').default);
 const Contacts = Vue.component('Contacts', require('./pages/Contacts.vue').default);
+const _404 = Vue.component('for-zero-for', require('./pages/404.vue').default);
 
 const routes = [
     {
@@ -63,6 +64,10 @@ const routes = [
         name: 'contacts',
         component: Contacts
     },
+    {
+        path: '*',
+        component: _404
+    }
 ];
 
 const router = new VueRouter({
