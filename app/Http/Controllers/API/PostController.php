@@ -23,7 +23,15 @@ class PostController extends Controller
         )->get();
         return PostResource::collection(Post::with(['category'])->get()); */
 
-        return Post::with(['category', 'tags'])->get();
+        /* return Post::with(['category', 'tags'])
+            ->orderByDesc('id')
+            ->get(); */
+
+        return PostResource::collection(
+            Post::with(['category', 'tags'])
+                ->orderBy('id', 'desc')
+                ->paginate(6)
+        );
     }
 
     /**
